@@ -1,3 +1,5 @@
+//bigger size when apart from the others
+
 class attractor{
   
  int r, g, b;
@@ -34,38 +36,20 @@ class attractor{
     strokeWeight(2);
     stroke(255);
 
-
-
     fill(r, g, b, opacity);
-   //ellipse(pos.x,pos.y,radius,radius);
     ellipse(pos.x * width, height - (pos.y * height), radius, radius);
-
-
-
-
-//    if (opacity > 0)
-//      opacity -= 10;
-
+    //invert Y axis because of Lemur
 
   if(on && opacity  > 0)
   opacity -= 10;
   else if(!on && opacity < 255)
   opacity += 10;
 
-
-    //fill(255);
-    //text("test", position.x, position.y);
-
     popStyle();
  
  }
  
- /*void attract(boolean _action){
-   action = _action;
-   if (action){
-    // attract(action);
-   }
- }*/
+ //gravitational attract method
  
  PVector attract(particle p){
    PVector scaledPos = new PVector(pos.x*width , height - (pos.y*height));
